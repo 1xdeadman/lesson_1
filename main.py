@@ -1,4 +1,3 @@
-import time
 import random
 
 def gen_new_file(dir, hour, is_empty=False):
@@ -24,7 +23,7 @@ def gen_new_file(dir, hour, is_empty=False):
 
     filename = "log_" + "Thu, 12 Mar 2019 " + str(hour) + ":22:00"
 
-    with open(dir + filename ,"w") as ff:
+    with open(dir + filename ,"w", encoding="windows-1251") as ff:
         while len(node_name) != 0:
             elem_index = random.randint(0, len(node_name) - 1)
             elem = node_name[elem_index]
@@ -38,11 +37,13 @@ def gen_new_file(dir, hour, is_empty=False):
 start = 11
 end = 22
 
+
 def is_empty_hour(hour, start, end):
     for _ in range(5):
         if hour == random.randint(start,end):
             return True
     return False
+
 
 for hour in range(start, end):
     is_empty = is_empty_hour(hour, start, end)
