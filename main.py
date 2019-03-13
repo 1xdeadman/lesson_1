@@ -6,24 +6,35 @@ def gen_new_file(dir, hour, is_empty=False):
         "a",
         "b",
         "c",
-        "garbage_1",
         "d",
         "e",
         "f",
         "g",
-        "(garbage_2)",
         "elem_1",
         "elem_2",
         "elem_3",
+        "elem_4",
+        "elem_5",
+        "elem_6"
     ]
+    # add garbage
+    garbage_count = random.randint(0, 6)
+    for _ in range(garbage_count):
+        trash_values = []
+        for _ in range(2):
+            trash_values.append(str(random.getrandbits(random.randint(1,15))))
+        garbage = trash_values[0] + "garbage" + trash_values[1]
+        node_name.append(garbage)
+
+    # add empty rows
     if is_empty:
         empty_count = random.randint(1, 5)
         for _ in range(empty_count):
             node_name.append(None)
 
-    filename = "log_" + "Thu, 12 Mar 2019 " + str(hour) + ":22:00"
+    filename = "log_(" + "Thu, 12 Mar 2019 " + str(hour) + ":22:00).txt"
 
-    with open(dir + filename ,"w", encoding="windows-1251") as ff:
+    with open(dir + filename ,"w", encoding="utf-8") as ff:
         while len(node_name) != 0:
             elem_index = random.randint(0, len(node_name) - 1)
             elem = node_name[elem_index]
