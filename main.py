@@ -131,20 +131,3 @@ except Exception as ex:
 for minute in range(start, end):
     is_empty = is_empty_minute(minute, start, end)
     gen_new_file(g_node_names, "logs/", minute, is_empty)
-
-shown_device_count = len(g_node_names)//3
-
-shown_device_indexes = []
-
-for _ in range(shown_device_count):
-    while(True):
-        index = random.randint(0, len(g_node_names) - 1)
-        if index in shown_device_indexes:
-            continue
-        shown_device_indexes.append(index)
-        break
-
-
-print("random list:")
-for index in shown_device_indexes:
-    print(g_node_names[index])
