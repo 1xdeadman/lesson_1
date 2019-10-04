@@ -52,6 +52,7 @@ def gen_random_device_names(node_names):
         new_name = ""
         # gen unique device name
         while(True):
+            new_name = ""
             name_length = 4
             # gen specific device
             if random.randint(0, 4) == 0:
